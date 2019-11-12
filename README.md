@@ -1,6 +1,6 @@
-# Timber Theme
+# Timber Boilerplate Theme
 
-To get started with Timber Theme, follow the steps below:
+To get started, follow the steps below:
 
 ### Installation
 
