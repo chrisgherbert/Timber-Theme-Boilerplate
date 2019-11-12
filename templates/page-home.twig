@@ -1,0 +1,48 @@
+{% extends "page.twig" %}
+
+{% block content %}
+
+	<div class="container-fluid">
+
+		<div class="row">
+
+			<div class="col-md-12">
+
+				<article class="the-content">
+
+					<h1>
+						{{ post.title }}
+					</h1>
+
+					{{ post.content }}
+
+				</article>
+
+				{% if posts %}
+
+					<ol>
+
+						{% for post in posts %}
+
+							<li>
+								<a href="{{ post.link }}" title="{{ post.title }}">
+									<h3>{{ post.title }}</h3>
+								</a>
+								<p>
+									{{ post.get_preview(30) }}
+								</p>
+							</li>
+
+						{% endfor %}
+
+					</ol>
+
+				{% endif %}
+
+			</div>
+
+		</div>
+
+	</div>
+
+{% endblock %}
