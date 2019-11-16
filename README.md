@@ -1,43 +1,24 @@
 # Timber Boilerplate Theme
 
-To get started, follow the steps below:
+## Requirements
 
-### Installation
+- PHP 7.0
+- Composer (For OSX: `brew install composer`)
+- NPM
 
-You need Gulp and Bower installed globally:
+## Inital Installation
 
-```sh
-$ npm i -g gulp
-$ npm i -g bower
-```
-From within the theme, grab the Gulp plugins (already included in a package.json):
-```sh
-$ npm i
-```
-Next, install the Bower dependencies via the command below. By default, the `bower_components` folder is located in `assets`.
-```sh
-$ bower install
-```
-Look for the `devvars.example.js` file to create your own `devvars.js` file. This allows you to use LiveReload during development.
+- `npm ci` to install NPM dependencies
+- `composer install` to install PHP dependencies
 
-To create a LiveReload server that watches you scripts and styles, use this command:
-```sh
-gulp serve --devvars ./devvars.js
-```
-If you would rather just pass in arguments for the LiveReload server, you can also do that:
-```sh
-gulp serve --port 3001 --proxy mysite.local
-```
-You *must* use one or the other for serve tasks to function properly.
+## Compiling Assets
 
-Remember to add any new javascript paths or SASS paths in the `gulpvars.js` file that you would like included in the build process.
+- During development, run `npm run watch` to compile assets automatically watch for changes to JS and SASS files
 
-### Version
-0.1
+## Deploying
 
-License
-----
+- To build the theme for production deployment, run `npm run production` before sending it to a remote server
 
-MIT
+
 
 
