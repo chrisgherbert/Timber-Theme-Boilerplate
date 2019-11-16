@@ -1,9 +1,8 @@
-/theme_dist
-devvars.js
-/vendor
+# Compiled Assets
+/dist
 
 # Package Managers
-bower_components
+/vendor
 node_modules
 npm-debug.log
 
