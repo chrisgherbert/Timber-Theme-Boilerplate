@@ -13,7 +13,8 @@ let mix = require('laravel-mix');
 
 mix.js(['src/js/modernizr.js', 'src/js/app.js'], 'dist/app.js')
 	.sass('src/scss/app.scss', 'dist/')
-	.setPublicPath('dist');
+	.setPublicPath('dist/')
+	.setResourceRoot('.'); 
 
 // Full API
 // mix.js(src, output);

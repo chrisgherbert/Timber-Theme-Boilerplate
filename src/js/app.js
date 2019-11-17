@@ -1,12 +1,14 @@
 /**
  * MAIN JAVASCRIPT FILE
- * Other javascript files concatenated via Gulp
- * User devvars.js and gulpvars.js files to modify Gulp variables
+ * Dependencies are loaded using Laravel Mix - check webpack.mix.js
  */
+
+import SmoothScroll from 'smooth-scroll';
 
 (function($, global) {
 
 	"use strict";
+
 
 	var website = {
 
@@ -84,7 +86,7 @@
 		ui: function() {
 
 			/* Smooth scrolling */
-			$("a[href^='#']").smoothScroll();
+			var scroll = new SmoothScroll('a[href*="#"]');
 
 		}
 
