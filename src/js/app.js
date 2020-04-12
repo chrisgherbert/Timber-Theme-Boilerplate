@@ -39,6 +39,7 @@ import SmoothScroll from 'smooth-scroll';
 
 			function openMenu() {
 				$drawer.addClass(settings.activeClass);
+				$trigger.addClass(settings.activeClass);
 				$menu
 					.attr({
 						"aria-hidden" : "false",
@@ -53,6 +54,7 @@ import SmoothScroll from 'smooth-scroll';
 
 			function closeMenu() {
 				$drawer.removeClass(settings.activeClass);
+				$trigger.removeClass(settings.activeClass);
 				$menu
 					.removeAttr("tabindex")
 					.attr("aria-hidden", "true")
