@@ -32,6 +32,7 @@ require( get_template_directory() . '/setup/autoloaders.php');
 
 // Instantiate theme classes
 new Theme\Assets();
+new Theme\Menus();
 new Theme\PostTypes();
 new Theme\CustomFields();
 new Theme\Taxonomies();

@@ -15,10 +15,21 @@ class Context {
 	}
 
 	public function add_menus($context){
-		$context['main_menu'] = new Menu('Main Navigation Menu');
-		$context['footer_menu'] = new Menu('Main Footer Menu');
-		$context['mobile_menu'] = new Menu('Main Mobile Menu');
+
+		if (has_nav_menu('main')) {
+			$context['main_menu'] = new Menu('main');
+		}
+
+		if (has_nav_menu('mobile')) {
+			$context['mobile_menu'] = new Menu('mobile');
+		}
+
+		if (has_nav_menu('footer')) {
+			$context['footer_menu'] = new Menu('footer');
+		}
+
 		return $context;
+
 	}
 
 	public function add_site_options($context){
