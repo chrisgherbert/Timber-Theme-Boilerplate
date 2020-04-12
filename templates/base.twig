@@ -5,20 +5,8 @@
 	{% block head %}
 	{% endblock %}
 
-	{% if open_graph %}
-		{% include 'head/open-graph.twig' with {'open_graph': open_graph} only %}
-	{% endif %}
+	{{ site_options_tracking.before_closing_head }}
 
-	{% if twitter_cards %}
-		{% include 'head/twitter-cards.twig' with {'twitter_cards': twitter_cards} only %}
-	{% endif %}
-
-	{% if schema %}
-		<!-- Schema.org Data -->
-		{{ schema }}
-	{% endif %}
-
-		{{ site_options_tracking.before_closing_head }}
 	</head>
 
 {% endblock %}

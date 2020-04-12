@@ -13,11 +13,6 @@ $context = Timber::get_context();
 $post = Timber::get_post($post->ID, 'Content\Post');
 $context['post'] = $post;
 
-// Open Graph
-$context['open_graph'] = $post->get_open_graph_data();
-// Twitter Cards
-$context['twitter_cards'] = $post->get_twitter_card_data();
-
 if ( post_password_required( $post->ID ) ) {
 	Timber::render( 'single-password.twig', $context );
 } else {
