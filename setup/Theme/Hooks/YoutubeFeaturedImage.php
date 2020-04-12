@@ -11,8 +11,8 @@ use bermanco\WordpressImageDownload\WordpressImageDownload;
 class YoutubeFeaturedImage {
 
 	public function __construct(){
-		add_action('updated_post_meta', array($this, 'set_featured_image'), 10, 4);
-		add_action('added_post_meta', array($this, 'set_featured_image'), 10, 4);
+		add_action('updated_post_meta', [$this, 'set_featured_image'], 10, 4);
+		add_action('added_post_meta', [$this, 'set_featured_image'], 10, 4);
 	}
 
 	public function set_featured_image($meta_id, $post_id, $meta_key, $meta_value){

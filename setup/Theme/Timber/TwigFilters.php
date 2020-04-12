@@ -8,12 +8,12 @@ namespace Theme\Timber;
 class TwigFilters {
 
 	public function __construct(){
-		add_filter('get_twig', array($this, 'add_filters'));
-		// add_filter('get_twig', array($this, 'add_functions'));
+		add_filter('get_twig', [$this, 'add_filters']);
+		// add_filter('get_twig', [$this, 'add_functions']);
 	}
 
 	public function add_filters($twig){
-		$twig->addFilter(new \Twig_SimpleFilter('ordinal', array($this, 'ordinal')));
+		$twig->addFilter(new \Twig_SimpleFilter('ordinal', [$this, 'ordinal']));
 		return $twig;
 	}
 
@@ -31,7 +31,7 @@ class TwigFilters {
 			return $number;
 		}
 
-		$ends = array('th','st','nd','rd','th','th','th','th','th','th');
+		$ends = ['th','st','nd','rd','th','th','th','th','th','th'];
 
 		if (($number %100) >= 11 && ($number%100) <= 13){
 			$ordinal = $number . '<sup>th</sup>';

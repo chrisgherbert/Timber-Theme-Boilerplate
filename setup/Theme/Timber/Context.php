@@ -10,8 +10,8 @@ use Timber\Menu;
 class Context {
 
 	public function __construct(){
-		add_filter('timber_context', array($this, 'add_menus'));
-		add_filter('timber_context', array($this, 'add_site_options'));
+		add_filter('timber_context', [$this, 'add_menus']);
+		add_filter('timber_context', [$this, 'add_site_options']);
 	}
 
 	public function add_menus($context){

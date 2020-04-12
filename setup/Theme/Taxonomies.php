@@ -9,9 +9,9 @@ namespace Theme;
 
 class Taxonomies {
 
-	protected $taxonomies = array(
+	protected $taxonomies = [
 		// 'department',
-	);
+	];
 
 	public function __construct(){
 

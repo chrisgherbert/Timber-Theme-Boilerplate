@@ -6,7 +6,7 @@ class AdminCustomize {
 
 	public function __construct(){
 
-		// add_action('login_head', array($this, 'custom_login_logo'));
+		// add_action('login_head', [$this, 'custom_login_logo']);
 
 	}
 

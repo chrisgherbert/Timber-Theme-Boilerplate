@@ -20,7 +20,7 @@ if ( ! class_exists( 'Timber' ) ) {
 // Setup Timber template locations //
 /////////////////////////////////////
 
-Timber::$dirname = array('templates', 'views');
+Timber::$dirname = ['templates', 'views'];
 
 
 ////////////////////////////

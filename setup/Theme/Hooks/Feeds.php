@@ -8,7 +8,7 @@ namespace Theme\Hooks;
 class Feeds {
 
 	public function __construct(){
-		add_filter( 'request', array( $this, 'add_cpt_to_rss_feed' ) );
+		add_filter( 'request', [$this, 'add_cpt_to_rss_feed'] );
 	}
 
 	/**

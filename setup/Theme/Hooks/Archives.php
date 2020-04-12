@@ -8,7 +8,7 @@ namespace Theme\Hooks;
 class Archives {
 
 	public function __construct(){
-		add_filter('pre_get_posts', array($this, 'add_cpt_to_archives'), 10, 1);
+		add_filter('pre_get_posts', [$this, 'add_cpt_to_archives'], 10, 1);
 	}
 
 	/**

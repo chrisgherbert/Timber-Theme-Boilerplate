@@ -7,9 +7,9 @@ namespace Theme;
 
 class PostTypes {
 
-	protected $types = array(
+	protected $types = [
 		// 'article',
-	);
+	];
 
 	public function __construct(){
 		if ($this->types && !empty($this->types)){

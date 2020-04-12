@@ -27,4 +27,4 @@ $post = Timber::get_post($post->ID, 'Content\Post');
 $context['post'] = $post;
 $context['open_graph'] = $post->get_open_graph_data();
 
-Timber::render( array( 'page-' . $post->post_name . '.twig', 'page.twig' ), $context );
+Timber::render( ['page-' . $post->post_name . '.twig', 'page.twig'], $context );
