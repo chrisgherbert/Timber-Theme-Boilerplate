@@ -33,7 +33,7 @@
   "dependencies": {
     "bootstrap-sass": "^3.4.1",
     "font-awesome": "^4.7.0",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.1",
     "lity": "^2.4.0",
     "smooth-scroll": "^16.1.2"
   }
