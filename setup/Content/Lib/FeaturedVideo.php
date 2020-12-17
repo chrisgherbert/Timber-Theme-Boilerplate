@@ -7,7 +7,7 @@
 
 namespace Content\Lib;
 
-use bermanco\YouTubeVideo\YouTubeVideo;
+use chrisgherbert\YouTubeVideo\YouTubeVideo;
 
 trait FeaturedVideo
 {

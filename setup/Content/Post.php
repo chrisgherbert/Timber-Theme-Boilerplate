@@ -5,7 +5,7 @@
 
 namespace Content;
 
-use bermanco\ExtendedTimberClasses;
+use chrisgherbert\ExtendedTimberClasses;
 
 class Post extends ExtendedTimberClasses\Post {
 

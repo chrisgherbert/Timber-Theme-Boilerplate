@@ -5,8 +5,8 @@
 
 namespace Theme\Hooks;
 
-use bermanco\YouTubeVideo\YouTubeVideo;
-use bermanco\WordpressImageDownload\WordpressImageDownload;
+use chrisgherbert\YouTubeVideo\YouTubeVideo;
+use chrisgherbert\WordpressImageDownload\WordpressImageDownload;
 
 class YoutubeFeaturedImage {
 
@@ -17,7 +17,7 @@ class YoutubeFeaturedImage {
 
 	public function set_featured_image($meta_id, $post_id, $meta_key, $meta_value){
 
-		if (!class_exists('bermanco\YouTubeVideo\YouTubeVideo') || !class_exists('bermanco\WordpressImageDownload\WordpressImageDownload')){
+		if (!class_exists('chrisgherbert\YouTubeVideo\YouTubeVideo') || !class_exists('chrisgherbert\WordpressImageDownload\WordpressImageDownload')){
 			error_log('Did you forget to run Composer?');
 			return false;
 		}
