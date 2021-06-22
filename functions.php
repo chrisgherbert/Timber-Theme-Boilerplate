@@ -50,7 +50,7 @@ new Theme\Hooks\YoutubeFeaturedImage();
 /////////////////////////
 
 // Theme Support
-add_theme_support( 'post-formats' );
+add_theme_support( 'post-formats', [] );
 add_theme_support( 'post-thumbnails' );
 add_theme_support( 'menus' );
 add_theme_support( 'title-tag' );
