@@ -8,7 +8,7 @@ namespace Theme;
 class PostTypes {
 
 	protected $types = [
-		// 'article',
+		'candidate'
 	];
 
 	public function __construct(){
@@ -40,6 +40,21 @@ class PostTypes {
 				'has_archive' => true
 			]
 		);
+
+	}
+
+	public function candidate(){
+
+		register_via_cpt_core([
+			'Candidate',
+			'Candidates',
+			'candidate'
+		], [
+			'menu_icon' => 'dashicons-businessperson',
+			'supports' => ['title', 'editor', 'thumbnail'],
+			'taxonomies' => ['category'],
+			'has_archive' => true
+		]);
 
 	}
 
