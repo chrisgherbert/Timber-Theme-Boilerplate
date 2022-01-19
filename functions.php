@@ -77,8 +77,12 @@ if (function_exists('p2p_register_connection_type')){
 
 		p2p_register_connection_type([
 			'name' => 'candidates_to_race',
-			'from' => 'candidate',
-			'to' => 'race'
+			'from' => 'race',
+			'to' => 'candidate',
+			'cardinality' => 'one-to-many',
+			'title' => [
+				'to' => 'Connected Race'
+			]
 		]);
 
 	});
