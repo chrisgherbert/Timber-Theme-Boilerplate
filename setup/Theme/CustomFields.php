@@ -17,8 +17,10 @@ class CustomFields {
 	 * @var array
 	 */
 	protected $boxes = [
-		// 'front',
-		// 'article',
+		'candidate',
+		'candidate_read_only',
+		'race',
+		'race_read_only'
 	];
 
 	/**
@@ -65,6 +67,169 @@ class CustomFields {
 		]);
 
 		$this->subtitle_field($cmb2);
+
+	}
+
+	public function candidate(){
+
+		$cmb2 = new_cmb2_box([
+			'id' => 'candidate',
+			'title' => 'Candidate Details',
+			'object_types' => ['candidate'],
+		]);
+
+		$cmb2->add_field([
+			'id' => 'last_name',
+			'name' => 'Last Name',
+			'description' => 'For alphabetization',
+			'type' => 'text'
+		]);
+
+		$cmb2->add_field([
+			'id' => 'bioguide_id',
+			'name'=> 'Bioguide ID',
+			'description' => 'For existing federal office-holders only. <a target="_blank" href="https://bioguide.congress.gov/search">Search here</a>, then pull the ID string out of the matching URL',
+			'type' => 'text'
+		]);
+
+		$cmb2->add_field([
+			'id' => 'ballotpedia_url',
+			'name' => 'Ballotpedia URL',
+			'type' => 'text_url'
+		]);
+
+		$cmb2->add_field([
+			'id' => 'political_party_taxonomy',
+			'name' => 'Political Party',
+			'type' => 'taxonomy_select',
+			'remove_default' => true,
+			'taxonomy' => 'political-party',
+			'query_args' => [
+				'orderby' => 'slug',
+				'hide_empty' => false
+			]
+		]);
+
+	}
+
+	public function candidate_read_only(){
+
+		$cmb2 = new_cmb2_box([
+			'id' => 'candidate_read_only',
+			'title' => 'Read Only Data',
+			'object_types' => ['candidate'],
+		]);
+
+		$cmb2->add_field([
+			'id' => 'ballotpedia_person_id',
+			'name'=> 'Ballotpedia Person ID',
+			'type' => 'text_small',
+			'save_field' => false,
+			'attributes' => [
+				'readonly' => 'readonly',
+				'disabled' => 'disabled'
+			]
+		]);
+
+	}
+
+	public function race(){
+
+		$cmb2 = new_cmb2_box([
+			'id' => 'race',
+			'title' => 'Race Details',
+			'object_types' => ['race'],
+		]);
+
+		$cmb2->add_field([
+			'id' => 'ballotpedia_url',
+			'name' => 'Ballotpedia URL',
+			'type' => 'text_url'
+		]);
+
+		$cmb2->add_field([
+			'id' => 'election_date',
+			'name' => 'Election Date',
+			'type' => 'text_date'
+		]);
+
+		$cmb2->add_field([
+			'id' => 'district_name',
+			'name' => 'District Name',
+			'type' => 'text',
+			'description' => 'Area in which people are eligible to vote for this race. For example, a US Senate race would be the name of the state.'
+		]);
+
+		$cmb2->add_field([
+			'id' => 'stage_taxonomy',
+			'name' => 'Race Stage',
+			'description' => 'Primary, general election, etc',
+			'type' => 'taxonomy_select',
+			'remove_default' => true,
+			'taxonomy' => 'stage',
+			'query_args' => [
+				'orderby' => 'slug',
+				'hide_empty' => false
+			]
+		]);
+
+		$cmb2->add_field([
+			'id' => 'state_taxonomy',
+			'name' => 'State',
+			'type' => 'taxonomy_select',
+			'remove_default' => true,
+			'taxonomy' => 'state',
+			'query_args' => [
+				'orderby' => 'slug',
+				'hide_empty' => false
+			]
+		]);
+
+		$cmb2->add_field([
+			'id' => 'level_taxonomy',
+			'name' => 'Office Level',
+			'description' => 'Federal/State/Local',
+			'type' => 'taxonomy_select',
+			'remove_default' => true,
+			'taxonomy' => 'level',
+			'query_args' => [
+				'orderby' => 'slug',
+				'hide_empty' => false
+			]
+		]);
+
+		$cmb2->add_field([
+			'id' => 'race_type_taxonomy',
+			'name' => 'Race Type',
+			'type' => 'taxonomy_select',
+			'remove_default' => true,
+			'taxonomy' => 'race-type',
+			'query_args' => [
+				'orderby' => 'slug',
+				'hide_empty' => false
+			]
+		]);
+
+	}
+
+	public function race_read_only(){
+
+		$cmb2 = new_cmb2_box([
+			'id' => 'race_read_only',
+			'title' => 'Read Only',
+			'object_types' => ['race'],
+		]);
+
+		$cmb2->add_field([
+			'id' => 'ballotpedia_race_id',
+			'name' => 'Ballotpedia Race ID',
+			'type' => 'text',
+			'save_field' => false,
+			'attributes' => [
+				'readonly' => 'readonly',
+				'disabled' => 'disabled'
+			]
+		]);
 
 	}
 

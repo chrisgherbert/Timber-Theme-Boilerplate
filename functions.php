@@ -68,3 +68,28 @@ remove_action('wp_head', 'parent_post_rel_link', 10, 0);
 remove_action('wp_head', 'adjacent_posts_rel_link', 10, 0);
 remove_action('wp_head', 'print_emoji_detection_script', 7);
 remove_action('wp_print_styles', 'print_emoji_styles');
+
+// Posts-to-posts Connections
+
+if (function_exists('p2p_register_connection_type')){
+
+	add_action('p2p_init', function(){
+
+		p2p_register_connection_type([
+			'name' => 'candidates_to_race',
+			'from' => 'candidate',
+			'to' => 'race'
+		]);
+
+	});
+
+}
+else {
+
+	add_action('admin_notices', function(){
+
+		echo '<div class="notice notice-error"><p>The Posts-to-Posts is not installed and/or activiated. This plugin is required. Please install it: <a href="https://github.com/scribu/wp-posts-to-posts">Posts-to-Posts plugin</a>.</p></div>';
+
+	});
+
+}

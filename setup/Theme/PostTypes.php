@@ -8,7 +8,8 @@ namespace Theme;
 class PostTypes {
 
 	protected $types = [
-		'candidate'
+		'candidate',
+		'race'
 	];
 
 	public function __construct(){
@@ -52,7 +53,22 @@ class PostTypes {
 		], [
 			'menu_icon' => 'dashicons-businessperson',
 			'supports' => ['title', 'editor', 'thumbnail'],
-			'taxonomies' => ['category'],
+			'taxonomies' => [],
+			'has_archive' => true
+		]);
+
+	}
+
+	public function race(){
+
+		register_via_cpt_core([
+			'Race',
+			'Races',
+			'race'
+		],[
+			'menu_icon' => 'dashicons-thumbs-up',
+			'supports' => ['title', 'editor'],
+			'taxonomies' => [],
 			'has_archive' => true
 		]);
 
