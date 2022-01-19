@@ -28,7 +28,8 @@
         "chrisgherbert/wordpress-image-download": "dev-master",
         "cmb2/cmb2": "^2.7",
         "webdevstudios/cpt-core": "^1.0",
-        "webdevstudios/taxonomy_core": "^0.2.4"
+        "webdevstudios/taxonomy_core": "^0.2.4",
+        "league/csv": "^9.8"
     },
     "autoload": {
         "files": ["vendor/cmb2/init.php"]
