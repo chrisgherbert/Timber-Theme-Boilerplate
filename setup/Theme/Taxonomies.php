@@ -37,26 +37,6 @@ class Taxonomies {
 	// Taxonomies //
 	////////////////
 
-	public function department(){
-
-		register_via_taxonomy_core(
-			[
-				'Department', // Singular Name
-				'Departments', // Plural Name
-				'department'
-			],
-			[
-				'description' => 'This is a department made up of people',
-				'hierarchical' => true, // "true" for category-like interface, "false" for tag-like interface,
-				'show_ui' => true,
-				'show_admin_column' => false,
-				'query_var' => true
-			],
-			['person'] // Object types (custom post types) to include
-		);
-
-	}
-
 	public function political_party(){
 
 		register_via_taxonomy_core([
