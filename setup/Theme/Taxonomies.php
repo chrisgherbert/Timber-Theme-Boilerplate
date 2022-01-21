@@ -251,8 +251,17 @@ class Taxonomies {
 			'WY' => 'Wyoming',
 		];
 
-		foreach ($options as $option){
-			self::create_term_if_not_exists($option, 'state');
+		foreach ($options as $abbrev => $name){
+
+			if (!term_exists($name, 'state')){
+				wp_insert_term($name, 'state', [
+					'slug' => $abbrev
+				]);
+			}
+			else {
+				return false;
+			}
+
 		}
 
 	}

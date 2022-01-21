@@ -150,7 +150,8 @@ class CustomFields {
 		$cmb2->add_field([
 			'id' => 'election_date',
 			'name' => 'Election Date',
-			'type' => 'text_date'
+			'type' => 'text_date',
+			'date_format' => 'Y-m-d'
 		]);
 
 		$cmb2->add_field([
@@ -179,6 +180,18 @@ class CustomFields {
 			'type' => 'taxonomy_select',
 			'remove_default' => true,
 			'taxonomy' => 'state',
+			'query_args' => [
+				'orderby' => 'slug',
+				'hide_empty' => false
+			]
+		]);
+
+		$cmb2->add_field([
+			'id' => 'branch_taxonomy',
+			'name' => 'Branch',
+			'type' => 'taxonomy_select',
+			'remove_default' => true,
+			'taxonomy' => 'branch',
 			'query_args' => [
 				'orderby' => 'slug',
 				'hide_empty' => false
@@ -223,6 +236,17 @@ class CustomFields {
 		$cmb2->add_field([
 			'id' => 'ballotpedia_race_id',
 			'name' => 'Ballotpedia Race ID',
+			'type' => 'text',
+			'save_field' => false,
+			'attributes' => [
+				'readonly' => 'readonly',
+				'disabled' => 'disabled'
+			]
+		]);
+
+		$cmb2->add_field([
+			'id' => 'district_ocdid',
+			'name' => 'District OCDID',
 			'type' => 'text',
 			'save_field' => false,
 			'attributes' => [

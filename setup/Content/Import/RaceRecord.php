@@ -24,7 +24,7 @@ class RaceRecord {
 		}
 
 		// Set state
-		if ($body = $this->state()){
+		if ($state = $this->state_abbrev()){
 			echo ' - Setting state: ' . $state . PHP_EOL;
 			$state_term = get_term_by('slug', $state, 'state');
 			wp_set_object_terms($post_id, $state_term->term_id, 'state');
@@ -33,25 +33,44 @@ class RaceRecord {
 		// Set level
 		if ($level = $this->level()){
 			echo ' - Setting level: ' . $level . PHP_EOL;
-			$this->set_term_by_name($post_id, $level, $taxonomy);
+			$this->set_term_by_name($post_id, $level, 'level');
 		}
 
 		// Set branch
 		if ($branch = $this->branch()){
 			echo ' - Setting branch: ' . $branch . PHP_EOL;
-			$this->set_term_by_name($post_id, $branch, $taxonomy);
+			$this->set_term_by_name($post_id, $branch, 'branch');
 		}
 
 		// Set race_type
 		if ($race_type = $this->race_type()){
 			echo ' - Setting race_type: ' . $race_type . PHP_EOL;
-			$this->set_term_by_name($post_id, $race_type, $taxonomy);
+			$this->set_term_by_name($post_id, $race_type, 'race-type');
 		}
 
 		// Set stage
 		if ($stage = $this->stage()){
 			echo ' - Setting stage: ' . $stage . PHP_EOL;
-			$this->set_term_by_name($post_id, $stage, $taxonomy);
+			$this->set_term_by_name($post_id, $stage, 'stage');
+		}
+
+		// Set post meta
+
+		$meta_items = [
+			'ballotpedia_url' => $this->race_url(),
+			'election_date' => $this->election_date(),
+			'district_name' => $this->district_name(),
+			'district_ocdid' => $this->district_ocdid(),
+			'ballotpedia_race_id' => $this->race_id()
+		];
+
+		foreach ($meta_items as $key => $value) {
+
+			if ($value !== NULL){
+				echo ' - Setting meta: ' . $key . ': ' . $value . PHP_EOL;
+				update_post_meta($post_id, $key, $value);
+			}
+
 		}
 
 	}
@@ -102,6 +121,18 @@ class RaceRecord {
 
 	}
 
+	public function set_term_by_slug($post_id, $name,$slug, $taxonomy){
+
+		$term = get_term_by('slug', $slug, $taxonomy);
+
+		if (!$term){
+			$term = wp_insert_term($name, $taxonomy);
+		}
+
+
+
+	}
+
 	public function set_term_by_name($post_id, $name, $taxonomy){
 
 		$term = get_term_by('name', $name, $taxonomy);
@@ -144,7 +175,7 @@ class RaceRecord {
 	}
 
 	public function race_type(){
-		return $this->data['Race Type'] ?? false;
+		return $this->data['Race type'] ?? false;
 	}
 
 	public function level(){
