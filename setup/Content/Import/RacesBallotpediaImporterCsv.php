@@ -4,7 +4,7 @@ namespace Content\Import;
 
 use League\Csv\Reader;
 
-class RacesBallotpediaImporter {
+class RacesBallotpediaImporterCsv {
 
 	public $csv_path;
 
