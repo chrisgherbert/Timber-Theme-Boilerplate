@@ -25,6 +25,8 @@ class RacesBallotpediaImporterJson {
 
 		foreach ($data as $row){
 
+			$row = (array) $row;
+
 			$race_record = new RaceRecord($row);
 
 			$race_record->create_post();
