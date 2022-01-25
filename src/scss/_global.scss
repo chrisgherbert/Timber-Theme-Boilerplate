@@ -14,9 +14,6 @@ img {
 }
 
 /* Strip all ul's */
-ul {
-	@include strip-ul;
-}
 
 a {
 	transition: $transition;

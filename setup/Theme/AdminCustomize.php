@@ -6,7 +6,7 @@ class AdminCustomize {
 
 	public function __construct(){
 
-		// add_action('login_head', [$this, 'custom_login_logo']);
+		add_action('login_head', [$this, 'custom_login_logo']);
 
 		// Change title field placeholder text for candidate CPT
 		add_filter( 'enter_title_here', [$this, 'change_candidate_title_field_placeholder'] );
@@ -42,15 +42,15 @@ class AdminCustomize {
 	/**
 	 * Customize the logo displayed on the Wordpress login page
 	 */
-	// public function custom_login_logo() {
-	// 	echo '<style type="text/css">
-	// 	h1 a { background-image: url('.get_bloginfo('template_directory').'/assets/img/logo.svg) !important;
-	// 	 background-size: 100% !important;
-	// 	 width: 100% !important;
-	// 	 height: 125px !important;
-	// 	 pointer-events: none;
-	// 	}
-	// 	</style>';
-	// }
+	public function custom_login_logo() {
+		echo '<style type="text/css">
+		h1 a { background-image: url('.get_bloginfo('template_directory').'/assets/img/logo.png) !important;
+		 background-size: 100% !important;
+		 width: 100% !important;
+		 height: 55px !important;
+		 pointer-events: none;
+		}
+		</style>';
+	}
 
 }

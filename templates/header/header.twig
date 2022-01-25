@@ -1,10 +1,24 @@
-<header class="main-header" id="main-header">
+<header class="main-header" id="main-header" style="background-color: rgba(0,0,0,0.1)">
 
-	<a href="{{ site.url }}" rel="home">
-		<img class="main-header__logo" src="{{ theme.link }}/assets/img/logo.svg" alt="{{ site.name }}" role="banner">
-	</a>
+	<div class="section section--tight">
 
-	{% if main_menu %}
+		<div class="container-fluid">
+
+			<div class="row">
+
+				<div class="text-center">
+					<a href="{{ site.url }}" rel="home">
+						<img class="main-header__logo" src="{{ theme.link }}/assets/img/logo.png" alt="{{ site.name }}" role="banner" style="max-width: 400px">
+					</a>
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+{# 	{% if main_menu %}
 		<nav class="main-menu hidden-xs" role="navigation">
 			<ul class="main-menu__list">
 				{% for item in main_menu.items %}
@@ -21,6 +35,6 @@
 	<button class="mobile-trigger visible-xs-inline-block" id="mobileTrigger" aria-controls="mobileMenu">
 		<i class="fa fa-bars" aria-hidden="true"></i>
 		<span class="sr-only">Mobile Menu</span>
-	</button>
+	</button> #}
 
 </header>
