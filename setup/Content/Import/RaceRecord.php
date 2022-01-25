@@ -14,7 +14,7 @@ class RaceRecord {
 
 	public function create_post(){
 
-		echo 'Creating post object for ' . $this->title() . PHP_EOL;
+		echo 'Creating/updating post object for "' . $this->title() . '"' . PHP_EOL;
 
 		$post_id = $this->get_or_create_post();
 
@@ -81,6 +81,8 @@ class RaceRecord {
 
 		if (!$existing_post){
 
+			echo ' - Post object does not exist, creating object' . PHP_EOL;
+
 			$post_id = wp_insert_post([
 				'post_type' => 'race',
 				'post_title' => $this->title(),
@@ -90,6 +92,7 @@ class RaceRecord {
 		}
 		else {
 
+			echo ' - Post object already exists' . PHP_EOL;
 			$post_id = $existing_post;
 
 		}
