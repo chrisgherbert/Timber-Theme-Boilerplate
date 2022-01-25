@@ -30,6 +30,7 @@ class SiteOptions {
 
 		$this->social_options_main_page();
 		$this->tracking_options_page();
+		$this->api_keys_options_page();
 		$this->footer_options_page();
 
 	}
@@ -87,6 +88,22 @@ class SiteOptions {
 			'desc'    => 'This code will be output immediately before the closing &lt;/body&gt; tag.',
 			'id'      => 'before_closing_body',
 			'type'    => 'textarea_code',
+		] );
+
+	}
+
+	public function api_keys_options_page(){
+
+		$options_page = $this->add_options_page(
+			'api_keys',
+			'API Keys Options',
+			'API Keys'
+		);
+
+		$options_page->add_field( [
+			'name'    => 'Ballotpedia API Key',
+			'id'      => 'ballotpedia_api_key',
+			'type'    => 'text'
 		] );
 
 	}

@@ -97,3 +97,24 @@ else {
 	});
 
 }
+
+// Importer
+
+function import_ballotpedia_data(){
+
+	$api_key = get_site_option('site_options_api_keys')['ballotpedia_api_key'] ?? false;
+
+	if (!$api_key){
+		return false;
+	}
+
+	$importer_api = new Content\Import\RacesBallotpediaImporterApi($api_key);
+
+	$url = $importer_api->get_json_url();
+
+	$json_importer = new Content\Import\RacesBallotpediaImporterJson($url);
+
+	$json_importer->import();
+
+}
+
