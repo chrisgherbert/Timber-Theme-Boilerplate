@@ -1,0 +1,108 @@
+{% extends "base.twig" %}
+
+{% set connected_race = post.connected_race %}
+
+{% block content %}
+
+	<article class="section">
+
+		<div class="container-fluid">
+
+			<div class="row">
+
+				<div class="col-sm-3 col-lg-2">
+
+					{% block single_sidebar %}
+
+						{% if post.thumbnail %}
+							<img src="{{ post.thumbnail('large').src }}" alt="Image of {{ post.title }}">
+						{% else %}
+							<img src="{{ theme.link }}/assets/img/profile-placeholder.png" alt="Placeholder image">
+						{% endif %}
+
+					{% endblock %}
+
+				</div>
+
+				<div class="col-sm-9 col-lg-7">
+
+					{% block single_header %}
+
+						<header>
+
+							<h1 style="margin-top: 0">
+								{{ post.title }}
+							</h1>
+
+							{% if connected_race %}
+								<h4>
+									Candidate for 
+									<a href="{{ connected_race.link }}">
+										{{ connected_race.title }}
+									</a>
+								</h4>
+							{% endif %}
+
+						</header>
+
+					{% endblock %}
+
+					{% block single_body %}
+
+						<div class="the-content">
+							{{ post.content}}
+						</div>
+
+					{% endblock %}
+
+					{% block single_footer %}
+
+						<footer>
+
+							<ul>
+								{% if connected_race.terms('state')[0] %}
+									<li>
+										<strong>State:</strong> {{ connected_race.terms('state')[0] }}
+									</li>
+								{% endif %}
+								{% if post.ballotpedia_url %}
+									<li>
+										<strong>Ballotpedia Profile:</strong> <a href="{{ post.ballotpedia_url }}">{{ post.ballotpedia_url }}</a>
+									</li>
+								{% endif %}
+								{% if post.bioguide_id %}
+									<li>
+										<strong>Bioguide ID:</strong> {{ post.bioguide_id }}
+									</li>
+								{% endif %}
+								{% if post.terms('political-party')[0] %}
+									<li>
+										<strong>Political Party:</strong> {{ post.terms('political-party')[0] }}
+									</li>
+								{% endif %}
+
+								{% if post.terms('stage')[0] %}
+									<li>
+										<strong>Race Stage:</strong> {{ post.terms('stage')[0] }}
+									</li>
+								{% endif %}
+								{% if post.terms('stage')[0] and post.election_date %}
+									<li>
+										<strong>{{ post.terms('stage')[0] }} Election Date:</strong> {{ post.election_date }}
+									</li>
+								{% endif %}
+							</ul>
+
+						</footer>
+
+					{% endblock %}
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</article>
+
+{% endblock %}

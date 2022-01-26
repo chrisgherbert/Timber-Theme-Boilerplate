@@ -1,0 +1,43 @@
+{% extends 'single.twig' %}
+
+{% block single_body %}
+
+	{% set candidates = post.connected_candidates %}
+
+	{% if candidates %}
+
+		<h4>Candidates:</h4>
+
+		<ul>
+
+			{% for item in candidates %}
+				<li>
+					<a href="{{ item.link }}">
+						{{ item.title }}
+					</a>
+				</li>
+			{% endfor %}
+
+		</ul>
+
+		<h4>More Info:</h4>
+
+		<ul>
+
+			{% if post.terms('state')[0] %}
+				<li>
+					<strong>State:</strong> {{ post.terms('state')[0] }}
+				</li>
+			{% endif %}
+
+			{% if post.ballotpedia_url %}
+				<li>
+					<strong>Ballotpedia Profile:</strong> <a href="{{ post.ballotpedia_url }}">{{ post.ballotpedia_url }}</a>
+				</li>
+			{% endif %}
+
+		</ul>
+
+	{% endif %}
+
+{% endblock %}
