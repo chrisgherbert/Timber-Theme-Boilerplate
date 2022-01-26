@@ -100,7 +100,11 @@ else {
 
 // Importer
 
-function import_ballotpedia_data(){
+/**
+ * Import Ballotpedia data and optionally send a report email to the admin
+ * @param  boolean $send_email Send an email to site admin
+ */
+function import_ballotpedia_data($send_email = false){
 
 	$api_key = get_site_option('site_options_api_keys')['ballotpedia_api_key'] ?? false;
 
@@ -114,7 +118,28 @@ function import_ballotpedia_data(){
 
 	$json_importer = new Content\Import\RacesBallotpediaImporterJson($url);
 
+	// Start timer
+	$time_pre = microtime(true);
+
+	// Import records
 	$json_importer->import();
+
+	// Stop timer
+	$time_post = microtime(true);
+	$exec_time = round($time_post - $time_pre);
+
+	$message = "Completed Ballotpedia data import in $exec_time seconds";
+
+	// Email import report
+	if ($send_email){
+
+		wp_mail(
+			get_option('admin_email'),
+			'Candidate Database Import Report',
+			$message
+		);
+
+	}
 
 }
 
