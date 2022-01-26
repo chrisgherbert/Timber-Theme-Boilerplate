@@ -10,7 +10,7 @@
  */
 
 $context = Timber::get_context();
-$post = Timber::get_post($post->ID, 'Content\Post');
+$post = Timber::get_post($post->ID, \Content\Post::class_map());
 $context['post'] = $post;
 
 if ( post_password_required( $post->ID ) ) {
