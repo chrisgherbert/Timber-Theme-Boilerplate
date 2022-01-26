@@ -110,6 +110,26 @@ class CustomFields {
 			]
 		]);
 
+		$cmb2->add_field([
+			'id' => 'stage_taxonomy',
+			'name' => 'Race Stage',
+			'description' => 'Primary, general election, etc',
+			'type' => 'taxonomy_select',
+			'remove_default' => true,
+			'taxonomy' => 'stage',
+			'query_args' => [
+				'orderby' => 'slug',
+				'hide_empty' => false
+			]
+		]);
+
+		$cmb2->add_field([
+			'id' => 'election_date',
+			'name' => 'Date of next election (primary or general election)',
+			'type' => 'text_date',
+			'date_format' => 'Y-m-d'
+		]);
+
 	}
 
 	public function candidate_read_only(){
@@ -159,19 +179,6 @@ class CustomFields {
 			'name' => 'District Name',
 			'type' => 'text',
 			'description' => 'Area in which people are eligible to vote for this race. For example, a US Senate race would be the name of the state.'
-		]);
-
-		$cmb2->add_field([
-			'id' => 'stage_taxonomy',
-			'name' => 'Race Stage',
-			'description' => 'Primary, general election, etc',
-			'type' => 'taxonomy_select',
-			'remove_default' => true,
-			'taxonomy' => 'stage',
-			'query_args' => [
-				'orderby' => 'slug',
-				'hide_empty' => false
-			]
 		]);
 
 		$cmb2->add_field([

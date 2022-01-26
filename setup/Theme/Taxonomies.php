@@ -134,7 +134,7 @@ class Taxonomies {
 			'show_admin_column' => true,
 			'query_var' => true
 		],[
-			'race'
+			'candidate'
 		]);
 
 	}
