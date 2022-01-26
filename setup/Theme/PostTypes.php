@@ -43,7 +43,7 @@ class PostTypes {
 			'race'
 		],[
 			'menu_icon' => 'dashicons-thumbs-up',
-			'supports' => ['title', 'editor'],
+			'supports' => ['title'],
 			'taxonomies' => [],
 			'has_archive' => true
 		]);
