@@ -108,8 +108,8 @@ class RaceRecord {
 			'post_type' => 'race',
 			'meta_query' => [
 				[
-					'key' => 'ballotpedia_race_id',
-					'value' => $this->race_id(),
+					'key' => 'ballotpedia_url',
+					'value' => $this->race_url(),
 					'compare' => '='
 				]
 			]
