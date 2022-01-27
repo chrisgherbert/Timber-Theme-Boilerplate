@@ -25,14 +25,14 @@
         "oscarotero/env": "^2.1",
         "chrisgherbert/extended-timber-classes": "dev-master",
         "chrisgherbert/youtube-video": "dev-master",
-        "chrisgherbert/wordpress-image-download": "dev-master",
+        "chrisgherbert/wordpress-image-download": "^4",
         "cmb2/cmb2": "^2.7",
         "webdevstudios/cpt-core": "^1.0",
         "webdevstudios/taxonomy_core": "^0.2.4",
         "league/csv": "^9.8",
         "php-curl-class/php-curl-class": "^7.0",
         "embed/embed": "^4.4",
-        "guzzlehttp/psr7": "^2.1"
+        "guzzlehttp/guzzle": "^7.4"
     },
     "autoload": {
         "files": ["vendor/cmb2/init.php"]

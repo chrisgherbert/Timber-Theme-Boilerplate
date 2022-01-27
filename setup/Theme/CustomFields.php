@@ -18,6 +18,7 @@ class CustomFields {
 	 */
 	protected $boxes = [
 		'candidate',
+		'candidate_contact_info',
 		'candidate_read_only',
 		'race',
 		'race_read_only'
@@ -129,6 +130,38 @@ class CustomFields {
 			'type' => 'text_date',
 			'date_format' => 'Y-m-d'
 		]);
+
+	}
+
+	public function candidate_contact_info(){
+
+		$cmb2 = new_cmb2_box([
+			'id' => 'candidate_contact_info',
+			'title' => 'Contact Info',
+			'object_types' => ['candidate'],
+		]);
+
+		$contact_info_elements = [
+			'campaign_facebook' => 'Campaign Facebook',
+			'campaign_twitter' => 'Campaign Twitter',
+			'campaign_instagram' => 'Campaign Instagram',
+			'campaign_youtube' => 'Campaign YouTube',
+			'campaign_website' => 'Campaign website',
+			'campaign_email' => 'Campaign email',
+			'campaign_mailing_address' => 'Campaign mailing address',
+			'campaign_phone' => 'Campaign phone'
+		];
+
+		// Create various social media custom fields
+		foreach ($contact_info_elements as $key => $value) {
+
+			$cmb2->add_field([
+				'id' => $key,
+				'name' => $value,
+				'type' => 'text'
+			]);
+
+		}
 
 	}
 
