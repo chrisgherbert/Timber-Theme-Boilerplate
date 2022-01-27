@@ -24,8 +24,6 @@ class Post extends ExtendedTimberClasses\Post {
 
 	public function update_featured_image_by_url($image_url, $replace_existing = false){
 
-		error_log(get_called_class() . ' Featured image url is: ' . $image_url);
-
 		if ($this->thumbnail() && !$replace_existing){
 			return false;
 		}
