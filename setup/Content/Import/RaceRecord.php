@@ -48,12 +48,6 @@ class RaceRecord {
 			$this->set_term_by_name($post_id, $race_type, 'race-type');
 		}
 
-		// Set stage
-		if ($stage = $this->stage()){
-			echo ' - Setting stage: ' . $stage . PHP_EOL;
-			$this->set_term_by_name($post_id, $stage, 'stage');
-		}
-
 		// Set post meta
 
 		$meta_items = [
@@ -171,10 +165,6 @@ class RaceRecord {
 
 	public function office_id(){
 		return $this->data['Office ID'] ?? false;
-	}
-
-	public function stage(){
-		return $this->data['Stage'] ?? false;
 	}
 
 	public function race_type(){
