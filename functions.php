@@ -22,7 +22,6 @@ if ( ! class_exists( 'Timber' ) ) {
 
 Timber::$dirname = ['templates', 'views'];
 
-
 ////////////////////////////
 // Initiate Theme Classes //
 ////////////////////////////
@@ -70,7 +69,9 @@ remove_action('wp_head', 'adjacent_posts_rel_link', 10, 0);
 remove_action('wp_head', 'print_emoji_detection_script', 7);
 remove_action('wp_print_styles', 'print_emoji_styles');
 
-// Posts-to-posts Connections
+////////////////////////////////
+// Posts-to-posts Connections //
+////////////////////////////////
 
 if (function_exists('p2p_register_connection_type')){
 
@@ -99,7 +100,9 @@ else {
 
 }
 
-// Importer
+//////////////////////////
+// Ballotpedia Importer //
+//////////////////////////
 
 /**
  * Import Ballotpedia data and optionally send a report email to the admin
