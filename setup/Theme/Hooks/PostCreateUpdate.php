@@ -3,7 +3,7 @@
 namespace Theme\Hooks;
 
 use Embed\Embed;
-use chrisgherbert\WordpressImageDownload\WordpressImageDownload;
+use Content\Lib\FileDownloader;
 
 class PostCreateUpdate {
 
@@ -30,25 +30,26 @@ class PostCreateUpdate {
 			return false;
 		}
 
-		$post = new \Content\Candidate($post_id);
-
 		if (has_post_thumbnail($post_id)){
 			return false;
 		}
 
 		$embed = new Embed();
-		$info = $embed->get($meta_value);
-		$image_url = (string) $info->image;
+
+		try {
+			$info = $embed->get($meta_value);
+			$image_url = (string) $info->image;
+		} catch (\Embed\Http\NetworkException $e) {
+			$msg = $e->getMessage();
+			error_log($msg);
+			return false;
+		}
+
+		error_log('Image URL is: ' . $image_url);
 
 		if ($image_url){
 
-			$downloader = new WordpressImageDownload($image_url);
-
-			$attachment_id = $downloader->create_media_attachment();
-
-			if ($attachment_id){
-				return set_post_thumbnail($post_id, $attachment_id);
-			}
+			self::update_featured_image_by_url($post_id, $image_url);
 
 		}
 		else {
@@ -59,13 +60,14 @@ class PostCreateUpdate {
 
 	public static function update_featured_image_by_url($post_id, $image_url){
 
-		$downloader = new WordpressImageDownload($image_url);
+		$attachment_id = FileDownloader::create_attachment_from_url($image_url);
 
-		$attachment_id = $downloader->create_media_attachment();
-
-		if ($attachment_id){
-			return set_post_thumbnail($post_id, $attachment_id);
+		if (is_wp_error($attachment_id)){
+			error_log(print_r($attachment_id));
+			return false;
 		}
+
+		return set_post_thumbnail($post_id, $attachment_id);
 
 	}
 

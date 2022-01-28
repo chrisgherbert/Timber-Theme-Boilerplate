@@ -6,7 +6,6 @@
 namespace Content;
 
 use chrisgherbert\ExtendedTimberClasses;
-use chrisgherbert\WordpressImageDownload\WordpressImageDownload;
 
 class Post extends ExtendedTimberClasses\Post {
 
@@ -28,9 +27,7 @@ class Post extends ExtendedTimberClasses\Post {
 			return false;
 		}
 
-		$downloader = new WordpressImageDownload($image_url);
-
-		$attachment_id = $downloader->create_media_attachment();
+		$attachment_id = Lib\FileDownloader::create_attachment_from_url($image_url);
 
 		if ($attachment_id){
 			return set_post_thumbnail($this->id, $attachment_id);
