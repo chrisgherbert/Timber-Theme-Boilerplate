@@ -44,6 +44,7 @@ new Theme\Hooks\Feeds();
 new Theme\Hooks\Archives();
 new Theme\Hooks\Ajax();
 new Theme\Hooks\YoutubeFeaturedImage();
+// new Theme\Hooks\PostCreateUpdate(); Not yet working
 
 /////////////////////////
 // Basic Theme Options //
