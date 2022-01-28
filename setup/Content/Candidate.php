@@ -53,4 +53,10 @@ class Candidate extends Post {
 
 	}
 
+	public function media(){
+
+		return carbon_get_post_meta($this->id, 'media_items');
+
+	}
+
 }

@@ -34,6 +34,7 @@ new Theme\Assets();
 new Theme\Menus();
 new Theme\PostTypes();
 new Theme\CustomFields();
+new Theme\CarbonFieldsCustomFields();
 new Theme\Taxonomies();
 new Theme\SiteOptions();
 new Theme\AdminCustomize();

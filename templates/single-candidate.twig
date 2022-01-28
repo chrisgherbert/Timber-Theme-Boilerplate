@@ -91,6 +91,20 @@
 										<strong>{{ post.terms('stage')[0] }} Election Date:</strong> {{ post.election_date }}
 									</li>
 								{% endif %}
+
+								{% if post.media %}
+									<li>
+										{% for item in post.media %}
+											<ul>
+												<li>{{ item.title }}</li>
+												<li><img src="{{ Image(item.image).src('large') }}" alt="{{ Image(item.image).alt|default(item.title) }}"></li>
+												<li>{{ item.description }}</li>
+												<li><a href="{{ item.link }}">{{ item.link }}</a></li>
+											</ul>
+										{% endfor %}
+									</li>
+								{% endif %}
+
 							</ul>
 
 						</footer>

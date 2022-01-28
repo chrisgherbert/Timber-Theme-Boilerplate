@@ -32,7 +32,8 @@
         "league/csv": "^9.8",
         "php-curl-class/php-curl-class": "^7.0",
         "embed/embed": "^4.4",
-        "guzzlehttp/guzzle": "^7.4"
+        "guzzlehttp/guzzle": "^7.4",
+        "htmlburger/carbon-fields": "^3.3"
     },
     "autoload": {
         "files": ["vendor/cmb2/init.php"]
