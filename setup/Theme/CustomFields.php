@@ -146,14 +146,27 @@ class CustomFields {
 			'campaign_twitter' => 'Campaign Twitter',
 			'campaign_instagram' => 'Campaign Instagram',
 			'campaign_youtube' => 'Campaign YouTube',
-			'campaign_website' => 'Campaign website',
+			'campaign_website' => 'Campaign website'
+		];
+
+		// Create various social media custom fields
+		foreach ($contact_info_elements as $key => $value) {
+
+			$cmb2->add_field([
+				'id' => $key,
+				'name' => $value,
+				'type' => 'text_url'
+			]);
+
+		}
+
+		$more_info_elements = [
 			'campaign_email' => 'Campaign email',
 			'campaign_mailing_address' => 'Campaign mailing address',
 			'campaign_phone' => 'Campaign phone'
 		];
 
-		// Create various social media custom fields
-		foreach ($contact_info_elements as $key => $value) {
+		foreach ($more_info_elements as $key => $value) {
 
 			$cmb2->add_field([
 				'id' => $key,
