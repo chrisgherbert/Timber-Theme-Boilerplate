@@ -178,6 +178,18 @@ class SiteOptions {
 			'type' => 'text_url',
 		] );
 
+		$main_options->add_field( [
+			'name' => 'TikTok URL',
+			'id'   => 'tiktok_url',
+			'type' => 'text_url',
+		] );
+
+		$main_options->add_field( [
+			'name' => 'Threads URL',
+			'id'   => 'threads_url',
+			'type' => 'text_url',
+		] );
+		
 	}
 
 }
