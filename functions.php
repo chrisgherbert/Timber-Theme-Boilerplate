@@ -3,7 +3,7 @@
 // Require Composer dependencies
 require_once('vendor/autoload.php');
 
-$timber = new \Timber\Timber();
+Timber\Timber::init();
 
 ////////////////////////////////
 // Make sure Timber is loaded //
@@ -22,6 +22,17 @@ if ( ! class_exists( 'Timber' ) ) {
 
 Timber::$dirname = ['templates', 'views'];
 
+///////////////
+// Class Map //
+///////////////
+
+add_filter('timber/post/classmap', function ($classmap) {
+	$custom_classmap = [
+		'post' => 'Content\Post'
+	];
+
+	return array_merge($classmap, $custom_classmap);
+});
 
 ////////////////////////////
 // Initiate Theme Classes //

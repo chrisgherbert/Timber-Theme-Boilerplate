@@ -8,12 +8,12 @@ namespace Theme\Timber;
 class TwigFilters {
 
 	public function __construct(){
-		add_filter('get_twig', [$this, 'add_filters']);
+		add_filter('timber/twig', [$this, 'add_filters']);
 		// add_filter('get_twig', [$this, 'add_functions']);
 	}
 
 	public function add_filters($twig){
-		$twig->addFilter(new \Twig_SimpleFilter('ordinal', [$this, 'ordinal']));
+		$twig->addFilter(new \Twig\TwigFilter('ordinal', [$this, 'ordinal']));
 		return $twig;
 	}
 

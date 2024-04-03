@@ -10,7 +10,7 @@
  */
 global $wp_query;
 
-$data = Timber::get_context();
+$data = Timber::context();
 $data['posts'] = Timber::get_posts(false, 'Content\Post');
 if ( isset( $wp_query->query_vars['author'] ) ) {
 	$author = new TimberUser( $wp_query->query_vars['author'] );

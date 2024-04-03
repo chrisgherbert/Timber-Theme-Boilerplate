@@ -10,10 +10,10 @@
  */
 
 $templates = ['search.twig', 'archive.twig', 'index.twig'];
-$context = Timber::get_context();
+$context = Timber::context();
 
 $context['title'] = 'Search results for '. get_search_query();
-$context['posts'] = Timber::get_posts(false, 'Content\Post');
+$context['posts'] = Timber::get_posts(false);
 $context['pagination'] = Timber::get_pagination();
 
 Timber::render( $templates, $context );

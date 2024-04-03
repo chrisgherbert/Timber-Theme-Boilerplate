@@ -9,8 +9,8 @@
  * @since    Timber 0.1
  */
 
-$context = Timber::get_context();
-$post = Timber::get_post($post->ID, 'Content\Post');
+$context = Timber::context();
+$post = Timber::get_post($post->ID);
 $context['post'] = $post;
 
 if ( post_password_required( $post->ID ) ) {
