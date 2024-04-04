@@ -9,7 +9,7 @@ class TwigFilters {
 
 	public function __construct(){
 		add_filter('timber/twig', [$this, 'add_filters']);
-		// add_filter('get_twig', [$this, 'add_functions']);
+		// add_filter('timber/twig', [$this, 'add_functions']);
 	}
 
 	public function add_filters($twig){
