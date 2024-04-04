@@ -3,10 +3,9 @@
  *  Template Name: Home Page
  */
 
-$context = Timber::context();
-$post = Timber::get_post($post->ID);
+use Timber\Timber;
 
-$context['post'] = $post;
+$context = Timber::context();
 
 // Pull in current posts
 $context['posts'] = Timber::get_posts([

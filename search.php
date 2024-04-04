@@ -9,11 +9,11 @@
  * @since   Timber 0.1
  */
 
-$templates = ['search.twig', 'archive.twig', 'index.twig'];
+use Timber\Timber;
+
 $context = Timber::context();
 
 $context['title'] = 'Search results for '. get_search_query();
-$context['posts'] = Timber::get_posts(false);
-$context['pagination'] = Timber::get_pagination();
 
+$templates = ['search.twig', 'archive.twig', 'index.twig'];
 Timber::render( $templates, $context );
