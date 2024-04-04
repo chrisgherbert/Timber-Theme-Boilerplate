@@ -33,10 +33,13 @@ class Context {
 	}
 
 	public function add_site_options($context){
+
 		$context['site_options_social'] = get_option('site_options');
 		$context['site_options_tracking'] = get_option('site_options_tracking');
 		$context['site_options_footer'] = get_option('site_options_footer');
+
 		return $context;
+
 	}
 
 }
