@@ -17,15 +17,15 @@ class Context {
 	public function add_menus($context){
 
 		if (has_nav_menu('main')) {
-			$context['main_menu'] = new Menu('main');
+			$context['main_menu'] = \Timber::get_menu('main');
 		}
 
 		if (has_nav_menu('mobile')) {
-			$context['mobile_menu'] = new Menu('mobile');
+			$context['mobile_menu'] = \Timber::get_menu('mobile');
 		}
 
 		if (has_nav_menu('footer')) {
-			$context['footer_menu'] = new Menu('footer');
+			$context['footer_menu'] = \Timber::get_menu('footer');
 		}
 
 		return $context;
